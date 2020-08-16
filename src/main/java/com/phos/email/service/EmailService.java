@@ -18,12 +18,7 @@ public class EmailService {
     @Value("${spring.mail.host}")
     private String host;
 
-    public void sendMail(EmailModel emailModel){
-        mailSender(emailModel);
-    }
-
-    //create a mail sender
-    private void mailSender(EmailModel model){
+    public void sendMail(EmailModel model){
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost(host);
         mailSender.setPort(port);
@@ -33,7 +28,10 @@ public class EmailService {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setFrom(model.getEmail());
         mailMessage.setTo(username);
-        mailMessage.setSubject(model.getName());
+        mailMessage.setSubject("Mail from: " + model.getName());
+        mailMessage.setText(model.getMessage());
+
+        mailSender.send(mailMessage);
     }
 
 }
