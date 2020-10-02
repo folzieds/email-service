@@ -6,6 +6,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
+
 @Service
 public class EmailService {
 
@@ -32,6 +34,8 @@ public class EmailService {
         mailMessage.setText(model.getMessage());
 
         mailSender.send(mailMessage);
+
+        HashSet<Character> let = new HashSet<>();
     }
 
 }

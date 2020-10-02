@@ -21,7 +21,7 @@ public class EmailController {
         this.emailService = emailService;
     }
 
-    @RequestMapping("/send-mail")
+    @RequestMapping("/send-email")
     @PostMapping
     public void sendMail(@RequestBody EmailModel emailModel, BindingResult bindingResult) throws ValidationException {
 
