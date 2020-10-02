@@ -1,13 +1,21 @@
 package com.phos.email.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 /**
  * Created by Folarin on 16/08/2020
  */
-
+@Entity(name = "email")
 public class EmailModel {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @NotNull
     @Email
@@ -18,6 +26,10 @@ public class EmailModel {
 
     @NotNull
     private String message;
+
+    public Long getId() {
+        return id;
+    }
 
     public String getEmail() {
         return email;
