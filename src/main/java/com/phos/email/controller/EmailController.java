@@ -28,6 +28,6 @@ public class EmailController {
         if(bindingResult.hasErrors()){
             throw new ValidationException("Email is not valid");
         }
-        emailService.sendMail(emailModel);
+        emailService.send(emailModel);
     }
 }

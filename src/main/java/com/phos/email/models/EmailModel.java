@@ -15,7 +15,7 @@ public class EmailModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @NotNull
     @Email
@@ -27,7 +27,7 @@ public class EmailModel {
     @NotNull
     private String message;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
