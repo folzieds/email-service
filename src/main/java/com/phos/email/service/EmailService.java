@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
 
@@ -67,6 +68,10 @@ public class EmailService {
     public EmailModel getEmail(long id){
         Optional<EmailModel> modelOptional = emailRepository.findById(id);
         return modelOptional.orElse(null);
+    }
+
+    public List<EmailModel> search(String name){
+        return emailRepository.findAllByEmailContainingOrNameContainingOrMessageContainingOrderByIdDesc(name,name,name);
     }
 
 }

@@ -43,4 +43,13 @@ public class EmailModel {
         return message;
     }
 
+    @Override
+    public String toString() {
+        return "EmailModel{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", message='" + message + '\'' +
+                '}';
+    }
 }
