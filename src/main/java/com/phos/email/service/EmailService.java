@@ -27,6 +27,8 @@ public class EmailService {
     private int port;
     @Value("${spring.mail.host}")
     private String host;
+    @Value("${mail.recipient}")
+    private String recipient;
 
     public void send(EmailModel emailModel){
         Properties properties = new Properties();
@@ -48,10 +50,9 @@ public class EmailService {
         try{
             Message mail = new MimeMessage(session);
             mail.setFrom(new InternetAddress(emailModel.getEmail()));
-            mail.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(username));
+            mail.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
             mail.setSubject(emailModel.getName());
-            mail.setText(emailModel.getMessage());
+            mail.setText(emailModel.getEmail()+ "\n\n" + emailModel.getMessage());
 
             //send message
             Transport.send(mail);

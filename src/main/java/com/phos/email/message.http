@@ -2,9 +2,9 @@ POST http://localhost:8020/send-email
 Content-Type: application/json
 
 {
-    "name": "Osu Adefolarin",
+    "name": "Osu Folain",
     "email": "aosu@phos.com",
-    "message": "Your app is awesome!!!"
+    "message": "Your app is awesome as usual!!!"
 }
 
 ###
