@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface EmailRepository extends JpaRepository<EmailModel,Long> {
 
-    List<EmailModel> findAllByEmailContainingOrNameContainingOrMessageContainingOrderByIdDesc(String parm1, String parm2, String parm3);
+    List<EmailModel> findAllByEmailContainingOrNameContainingOrMessageContaining(String parm1, String parm2, String parm3);
 }

@@ -31,7 +31,7 @@ public class EmailService {
     @Value("${mail.recipient}")
     private String recipient;
 
-    public void send(EmailModel emailModel){
+    public EmailModel send(EmailModel emailModel){
         Properties properties = new Properties();
         properties.put("mail.smtp.auth","true");
         properties.put("mail.smtp.host",host);
@@ -58,7 +58,7 @@ public class EmailService {
             //send message
             Transport.send(mail);
 
-            emailRepository.save(emailModel);
+             return emailRepository.save(emailModel);
 
         }catch (MessagingException e){
             throw new RuntimeException("Message was not sent");
@@ -71,7 +71,10 @@ public class EmailService {
     }
 
     public List<EmailModel> search(String name){
-        return emailRepository.findAllByEmailContainingOrNameContainingOrMessageContainingOrderByIdDesc(name,name,name);
+        return emailRepository.findAllByEmailContainingOrNameContainingOrMessageContaining(name,name,name);
     }
 
+    public List<EmailModel> getAllEmails() {
+        return emailRepository.findAll();
+    }
 }

@@ -8,5 +8,31 @@
 </head>
 <body>
     <div th:replace="fragments/navigation.html :: topNavigation"></div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Message</th>
+                    </tr>
+                    </thead>
+                    <div th:each="email: ${emails}">
+                        <tbody>
+                        <tr>
+                            <th scope="row" th:text="${email.id}">1</th>
+                            <td th:text="${email.name}">Mark</td>
+                            <td th:text="${email.email}">Otto</td>
+                            <td th:text="${email.message}">@mdo</td>
+                        </tr>
+                        </tbody>
+                    </div>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
