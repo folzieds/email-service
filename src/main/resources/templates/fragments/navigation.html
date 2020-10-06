@@ -8,15 +8,25 @@
 </head>
 <body>
     <div th:fragment="topNavigation">
-        <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" th:href="@{/}">
-                <img th:src="@{/images/favicon.png}" width="30" height="30" alt="">
-                Phos
-            </a>
-            <form class="form-inline mt-2 mt-md-0" method="get" action="/search">
-                <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-            </form>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img th:src="@{/images/favicon.png}" width="30" height="30" alt="">
+                    Phos
+                </a>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/test}">Test</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" method="get" action="/search">
+                    <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
         </nav>
     </div>
 </body>
