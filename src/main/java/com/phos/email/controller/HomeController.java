@@ -37,7 +37,7 @@ public class HomeController {
         return "test";
     }
 
-    @PostMapping("/send")
+    @PostMapping("/test")
     public String sendMail(@ModelAttribute EmailModel email, BindingResult bindingResult, Model model) throws ValidationException {
 
         if(bindingResult.hasErrors()){

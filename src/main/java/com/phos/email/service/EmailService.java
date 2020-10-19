@@ -28,7 +28,7 @@ public class EmailService {
     private int port;
     @Value("${spring.mail.host}")
     private String host;
-    @Value("${mail.recipient}")
+    @Value("${spring.mail.recipient}")
     private String recipient;
 
     public EmailModel send(EmailModel emailModel){
